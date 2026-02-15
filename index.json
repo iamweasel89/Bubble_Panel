@@ -10,7 +10,8 @@
                       "json-mode.md"
                   ],
     "control":  [
-                    "blitz-mode.md"
+                    "blitz-mode.md",
+                    "img-structural-diagnostic.md"
                 ],
     "system":  [
                    "bootstrap.md"

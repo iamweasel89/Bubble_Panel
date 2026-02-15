@@ -9,6 +9,7 @@
                       "json-mode.md"
                   ],
     "execution":  [
+                      "clear-console.md",
                       "regenerate-index.md"
                   ],
     "system":  [

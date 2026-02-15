@@ -1,4 +1,7 @@
 ﻿{
+    "context":  [
+                    "project-passport.md"
+                ],
     "execution":  [
                       "clear-console.md",
                       "regenerate-index.md"

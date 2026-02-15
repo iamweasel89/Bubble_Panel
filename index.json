@@ -7,11 +7,7 @@
                       "regenerate-index.md"
                   ],
     "transform":  [
-                      "json-mode.md",
-                      "strict-extraction.md",
-                      "strict-reduction.md",
-                      "strict-structuring.md",
-                      "strict-validation.md"
+                      "json-mode.md"
                   ],
     "control":  [
                     "blitz-mode.md"

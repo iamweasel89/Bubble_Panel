@@ -7,7 +7,6 @@
                       "regenerate-index.md"
                   ],
     "transform":  [
-                      "gp4-quantized-measurement.md",
                       "json-mode.md"
                   ],
     "control":  [

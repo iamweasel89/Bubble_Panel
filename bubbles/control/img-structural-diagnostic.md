@@ -1,4 +1,4 @@
-﻿---
+---
 id: BUB-CTRL-IMG-STRUCT-DIAG-001
 version: 1.0.0
 type: control

@@ -1,4 +1,4 @@
-﻿---
+---
 id: BUB-TRN-GP4-001
 version: 1.0.0
 type: transform

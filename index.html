@@ -14,29 +14,27 @@ body {
 /* === СЕТКА === */
 #boards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, auto));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
     align-items: start;
 }
 
 /* === БОРД === */
 .board {
-    display: inline-block;
-    padding: 14px 14px 16px 14px;
+    padding: 16px;
     border-radius: 18px;
     background: white;
     box-shadow: 0 4px 14px rgba(0,0,0,0.08);
-    width: fit-content;
-    max-width: 360px;
+    min-width: 260px;
 }
 
 /* === ЗАГОЛОВОК === */
 .board-title {
     font-size: 12px;
     font-weight: 600;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
     opacity: 0.65;
-    letter-spacing: 0.5px;
+    text-transform: lowercase;
 }
 
 /* === КНОПКИ === */
@@ -59,38 +57,27 @@ button {
 
 button:hover {
     background: #1c5fc4;
-    transform: translateY(-1px);
-}
-
-/* === TOAST === */
-#toast {
-    position: fixed;
-    bottom: 25px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: #333;
-    color: white;
-    padding: 8px 18px;
-    border-radius: 999px;
-    font-size: 12px;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
-}
-
-#toast.show {
-    opacity: 0.9;
 }
 </style>
 
 </head>
 <body>
 
-
 <div id="boards"></div>
-<div id="toast">Copied</div>
 
 <script>
+
+const typeOrder = [
+    "system",
+    "context",
+    "control",
+    "dialogue",
+    "transform",
+    "execution",
+    "guard",
+    "meta-analysis"
+];
+
 async function loadBubbles() {
     const res = await fetch("index.json?ts=" + Date.now());
     const data = await res.json();
@@ -98,7 +85,16 @@ async function loadBubbles() {
 
     container.innerHTML = "";
 
-    for (const board in data) {
+    // сортируем типы
+    const sortedTypes = Object.keys(data).sort((a, b) => {
+        const ia = typeOrder.indexOf(a);
+        const ib = typeOrder.indexOf(b);
+        if (ia === -1) return 1;
+        if (ib === -1) return -1;
+        return ia - ib;
+    });
+
+    for (const board of sortedTypes) {
 
         const boardDiv = document.createElement("div");
         boardDiv.className = "board";
@@ -137,16 +133,6 @@ async function copyPayload(board, file) {
 
     const cleaned = payload.replace("# 🧠 PAYLOAD", "").trim();
     await navigator.clipboard.writeText(cleaned);
-
-    showToast();
-}
-
-function showToast() {
-    const toast = document.getElementById("toast");
-    toast.classList.add("show");
-    setTimeout(() => {
-        toast.classList.remove("show");
-    }, 1000);
 }
 
 loadBubbles();

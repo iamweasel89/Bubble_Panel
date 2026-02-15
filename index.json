@@ -1,3 +1,5 @@
 ﻿{
-    "execution":  "regenerate-index.md"
+    "execution":  [
+                      "regenerate-index.md"
+                  ]
 }

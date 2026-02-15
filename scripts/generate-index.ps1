@@ -1,8 +1,7 @@
 ﻿# scripts/generate-index.ps1
 
 $root = Join-Path (Get-Location) "bubbles"
-$outputDir = Join-Path (Get-Location) "panel"
-$output = Join-Path $outputDir "index.json"
+$output = Join-Path (Get-Location) "index.json"
 
 $result = @{}
 

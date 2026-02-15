@@ -11,31 +11,18 @@ body {
     background: #f3f3f3;
 }
 
-/* === СЕТКА БОРДОВ === */
+/* === СЕТКА === */
 #boards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, auto));
-    gap: 22px;
+    gap: 20px;
     align-items: start;
 }
 
-/* === ОБЁРТКА БОРДА === */
-.board-wrapper {
-    display: inline-block;
-}
-
-/* === ЗАГОЛОВОК === */
-.board-title {
-    font-size: 14px;
-    font-weight: 600;
-    margin-bottom: 8px;
-    color: #444;
-}
-
-/* === КАРТОЧКА === */
+/* === БОРД === */
 .board {
     display: inline-block;
-    padding: 14px;
+    padding: 14px 14px 16px 14px;
     border-radius: 18px;
     background: white;
     box-shadow: 0 4px 14px rgba(0,0,0,0.08);
@@ -43,12 +30,20 @@ body {
     max-width: 360px;
 }
 
-/* === КНОПКИ КАК СЛОВА === */
+/* === ЗАГОЛОВОК ВНУТРИ === */
+.board-title {
+    font-size: 12px;         /* меньше кнопок */
+    font-weight: 600;
+    margin-bottom: 10px;
+    opacity: 0.65;
+    letter-spacing: 0.5px;
+}
+
+/* === КНОПКИ === */
 .board-buttons {
     line-height: 2.6;
 }
 
-/* === КНОПКИ-ПУЗЫРЬКИ === */
 button {
     display: inline-block;
     padding: 8px 16px;
@@ -83,15 +78,12 @@ async function loadBubbles() {
 
     for (const board in data) {
 
-        const wrapper = document.createElement("div");
-        wrapper.className = "board-wrapper";
+        const boardDiv = document.createElement("div");
+        boardDiv.className = "board";
 
         const title = document.createElement("div");
         title.className = "board-title";
         title.textContent = board;
-
-        const boardDiv = document.createElement("div");
-        boardDiv.className = "board";
 
         const buttonsDiv = document.createElement("div");
         buttonsDiv.className = "board-buttons";
@@ -103,10 +95,9 @@ async function loadBubbles() {
             buttonsDiv.appendChild(btn);
         });
 
+        boardDiv.appendChild(title);
         boardDiv.appendChild(buttonsDiv);
-        wrapper.appendChild(title);
-        wrapper.appendChild(boardDiv);
-        container.appendChild(wrapper);
+        container.appendChild(boardDiv);
     }
 }
 

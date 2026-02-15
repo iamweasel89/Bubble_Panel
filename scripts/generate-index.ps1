@@ -7,7 +7,8 @@ $result = @{}
 
 Get-ChildItem $root -Directory | ForEach-Object {
     $folder = $_.Name
-    $files = Get-ChildItem $_.FullName -Filter *.md | Select-Object -ExpandProperty Name
+    $files = @(Get-ChildItem $_.FullName -Filter *.md | Select-Object -ExpandProperty Name)
+
     if ($files.Count -gt 0) {
         $result[$folder] = $files
     }

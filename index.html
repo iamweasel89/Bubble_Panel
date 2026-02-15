@@ -30,9 +30,9 @@ body {
     max-width: 360px;
 }
 
-/* === ЗАГОЛОВОК ВНУТРИ === */
+/* === ЗАГОЛОВОК === */
 .board-title {
-    font-size: 12px;         /* меньше кнопок */
+    font-size: 12px;
     font-weight: 600;
     margin-bottom: 10px;
     opacity: 0.65;
@@ -61,12 +61,33 @@ button:hover {
     background: #1c5fc4;
     transform: translateY(-1px);
 }
+
+/* === TOAST === */
+#toast {
+    position: fixed;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #333;
+    color: white;
+    padding: 8px 18px;
+    border-radius: 999px;
+    font-size: 12px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+#toast.show {
+    opacity: 0.9;
+}
 </style>
 
 </head>
 <body>
 
 <div id="boards"></div>
+<div id="toast">Copied</div>
 
 <script>
 async function loadBubbles() {
@@ -115,6 +136,16 @@ async function copyPayload(board, file) {
 
     const cleaned = payload.replace("# 🧠 PAYLOAD", "").trim();
     await navigator.clipboard.writeText(cleaned);
+
+    showToast();
+}
+
+function showToast() {
+    const toast = document.getElementById("toast");
+    toast.classList.add("show");
+    setTimeout(() => {
+        toast.classList.remove("show");
+    }, 1000);
 }
 
 loadBubbles();

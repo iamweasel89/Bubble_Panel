@@ -1,5 +1,8 @@
 ﻿{
     "execution":  [
                       "regenerate-index.md"
-                  ]
+                  ],
+    "dialogue":  [
+                     "careful-questioning.md"
+                 ]
 }

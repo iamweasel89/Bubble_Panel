@@ -16,7 +16,7 @@ button { margin: 5px; padding: 6px 10px; cursor:pointer; }
 
 <script>
 async function loadBubbles() {
-    const res = await fetch("index.json");
+    const res = await fetch("index.json?ts=" + Date.now());
     const data = await res.json();
     const container = document.getElementById("boards");
 

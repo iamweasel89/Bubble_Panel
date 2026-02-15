@@ -1,18 +1,21 @@
 ﻿{
-    "control":  [
-                    "blitz-mode.md"
-                ],
-    "dialogue":  [
-                     "careful-questioning.md"
-                 ],
-    "transform":  [
-                      "json-mode.md"
-                  ],
     "execution":  [
                       "clear-console.md",
                       "regenerate-index.md"
                   ],
+    "transform":  [
+                      "json-mode.md"
+                  ],
+    "control":  [
+                    "blitz-mode.md"
+                ],
     "system":  [
                    "bootstrap.md"
-               ]
+               ],
+    "dialogue":  [
+                     "careful-questioning.md"
+                 ],
+    "guard":  [
+                  "launchblock-standard.md"
+              ]
 }

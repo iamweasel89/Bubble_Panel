@@ -40,7 +40,7 @@ async function loadBubbles() {
 }
 
 async function copyPayload(board, file) {
-    const path = "../bubbles/" + board + "/" + file;
+    const path = "bubbles/" + board + "/" + file;
     const res = await fetch(path);
     const text = await res.text();
 

@@ -1,8 +1,11 @@
 ﻿{
-    "execution":  [
-                      "regenerate-index.md"
+    "transform":  [
+                      "json-mode.md"
                   ],
     "dialogue":  [
                      "careful-questioning.md"
-                 ]
+                 ],
+    "execution":  [
+                      "regenerate-index.md"
+                  ]
 }

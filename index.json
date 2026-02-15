@@ -1,10 +1,13 @@
 ﻿{
-    "transform":  [
-                      "json-mode.md"
-                  ],
+    "control":  [
+                    "blitz-mode.md"
+                ],
     "dialogue":  [
                      "careful-questioning.md"
                  ],
+    "transform":  [
+                      "json-mode.md"
+                  ],
     "execution":  [
                       "regenerate-index.md"
                   ],
